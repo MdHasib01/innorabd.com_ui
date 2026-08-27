@@ -137,17 +137,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </div>
 
-            {/* Typography: INNORA with elevated trademark BD */}
+            {/* Typography: INNORA with snug golden BD badge */}
             <div className="flex flex-col justify-center">
-              <div className="flex items-start">
+              <div className="relative inline-flex items-center">
                 <span className="font-serif-luxury text-2xl sm:text-3xl font-bold tracking-tight text-[#850b20] group-hover:text-[#680516] transition-colors leading-none">
                   INNORA
                 </span>
-                <sup className="text-[9px] sm:text-[10px] font-bold text-[#b8860b] ml-0.5 tracking-wider uppercase font-sans -top-1 sm:-top-1.5 select-none">
+                <span className="relative -top-2.5 sm:-top-3 ml-1 px-1.5 py-0.2 bg-gradient-to-r from-[#d4af37] via-[#f9e9ad] to-[#cba02c] text-[#6b0618] text-[9px] sm:text-[10px] font-extrabold tracking-wider rounded-md border border-[#dfb73e] shadow-2xs select-none uppercase">
                   BD
-                </sup>
+                </span>
               </div>
-              <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] uppercase text-[#9e782f] font-semibold mt-1">
+              <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] uppercase text-[#9e782f] font-semibold mt-0.5">
                 Haute Lingerie & Fit
               </span>
             </div>
@@ -303,9 +303,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img src={innoraLogo} alt="INNORA Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-start">
+              <div className="relative inline-flex items-center">
                 <span className="font-serif-luxury text-xl font-bold text-[#850b20] leading-none">INNORA</span>
-                <sup className="text-[8px] font-bold text-[#b8860b] ml-0.5 tracking-wider uppercase font-sans -top-1 select-none">BD</sup>
+                <span className="relative -top-2 ml-1 px-1.5 py-0.2 bg-gradient-to-r from-[#d4af37] via-[#f9e9ad] to-[#cba02c] text-[#6b0618] text-[8.5px] font-extrabold tracking-wider rounded-md border border-[#dfb73e] shadow-2xs select-none uppercase">
+                  BD
+                </span>
               </div>
               <span className="text-[8px] tracking-[0.2em] uppercase text-[#9e782f] font-semibold mt-0.5">Haute Lingerie & Fit</span>
             </div>

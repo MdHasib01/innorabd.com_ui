@@ -83,13 +83,13 @@ export const Footer: React.FC<FooterProps> = ({
                 <img src={innoraLogo} alt="INNORA Logo" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-start">
+                <div className="relative inline-flex items-center">
                   <span className="font-serif-luxury text-3xl font-bold tracking-tight text-white group-hover:text-[#f3e5ab] transition-colors leading-none">
                     INNORA
                   </span>
-                  <sup className="text-[10px] font-bold text-[#d4af37] ml-0.5 tracking-wider uppercase font-sans -top-1.5 select-none">
+                  <span className="relative -top-3 ml-1.5 px-2 py-0.5 bg-gradient-to-r from-[#d4af37] via-[#f9e9ad] to-[#cba02c] text-[#6b0618] text-[9.5px] font-extrabold tracking-wider rounded-md border border-[#dfb73e] shadow-xs select-none uppercase">
                     BD
-                  </sup>
+                  </span>
                 </div>
                 <span className="text-[9.5px] tracking-[0.26em] uppercase text-[#d4af37] font-semibold mt-1">
                   Haute Lingerie Atelier

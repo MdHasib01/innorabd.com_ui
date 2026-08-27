@@ -26,7 +26,7 @@ export const CategoryPills: React.FC<CategoryPillsProps> = ({
 
   return (
     <div className="w-full bg-[#f6eee7] py-3.5 px-4 border-b border-[#e9ded5]">
-      <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+      <div className="max-w-[1440px] mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
         {categoryConfig.map((cat) => {
           const isActive = activeCategory === cat.name;
           const count = categoryCounts[cat.name] || 0;

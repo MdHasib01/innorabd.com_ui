@@ -10,7 +10,7 @@ export const LaceCraftsmanshipSection: React.FC = () => {
       subtitle: 'Heritage European Looms',
       badge: 'Artisanal Lace',
       description:
-        'Each intricate floral motif is woven with ultra-fine gossamer threads. Unlike mass-produced synthetic lace that scratches sensitive skin, innorabd lace achieves buttery softness and fluid drape.',
+        'Each intricate floral motif is woven with ultra-fine gossamer threads. Unlike mass-produced synthetic lace that scratches sensitive skin, INNORAᴮᴰ lace achieves buttery softness and fluid drape.',
       points: [
         'Scalloped eyelash neckline edges that lay flat against the décolletage',
         'Multi-directional elasticity accommodating dynamic cup movement',
@@ -27,7 +27,7 @@ export const LaceCraftsmanshipSection: React.FC = () => {
         'Every strap slider, hoop ring, and center logo charm is double-electroplated in real 24K gold alloy. 100% hypoallergenic and salt/sweat resistant to protect delicate feminine skin.',
       points: [
         'Zero pinching micro-sliders for continuous millimeter-level strap calibration',
-        'Custom engraved innorabd seal on back closures and bridge pendants',
+        'Custom engraved INNORAᴮᴰ seal on back closures and bridge pendants',
         'Nickel-free and dermatologist certified for zero irritation',
       ],
       image:
@@ -65,12 +65,12 @@ export const LaceCraftsmanshipSection: React.FC = () => {
 
   return (
     <section className="py-14 sm:py-20 bg-gradient-to-b from-[#faf8f7] via-[#f5ede5] to-[#faf8f7] border-y border-[#e7ded7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#850b20]/10 border border-[#d4af37]/50 text-[#850b20] text-xs font-bold uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-            <span>The innorabd Standard of Craftsmanship</span>
+            <span>The INNORAᴮᴰ Standard of Craftsmanship</span>
           </div>
 
           <h2 className="font-serif-luxury text-3xl sm:text-4xl font-bold text-stone-900">
@@ -79,7 +79,7 @@ export const LaceCraftsmanshipSection: React.FC = () => {
           </h2>
 
           <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
-            Behind every innorabd design lies 18 precise points of measurement, heritage French lace weaving, and 24K dipped accents engineered to elevate how you look and feel from within.
+            Behind every INNORAᴮᴰ design lies 18 precise points of measurement, heritage French lace weaving, and 24K dipped accents engineered to elevate how you look and feel from within.
           </p>
         </div>
 

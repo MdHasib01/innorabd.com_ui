@@ -45,7 +45,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       </div>
 
       {/* Hero Content Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10 w-full my-auto">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Text & Editorial Showcase */}
           <div className="lg:col-span-7 xl:col-span-6 space-y-6 text-center lg:text-left">
@@ -70,7 +70,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base text-[#e5d5c5] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed drop-shadow-sm">
-              Discover innorabd&apos;s mastercrafted innerwear: intricate French Chantilly lace, 24K dipped gold hardware, and cloud-soft memory foam tailored to elevate your natural silhouette.
+              Discover INNORAᴮᴰ&apos;s mastercrafted innerwear: intricate French Chantilly lace, 24K dipped gold hardware, and cloud-soft memory foam tailored to elevate your natural silhouette.
             </p>
 
             {/* CTA Buttons */}
@@ -127,7 +127,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
 
       {/* 4 Trust Pillars Strip */}
       <div className="relative z-10 bg-[#140105]/95 border-t border-[#d4af37]/20 py-4 px-4 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div className="flex items-center justify-center gap-2.5 text-xs text-[#f1dfd3]">
             <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0" />
             <span className="text-[11px] sm:text-xs">100% Discreet Unmarked Delivery</span>

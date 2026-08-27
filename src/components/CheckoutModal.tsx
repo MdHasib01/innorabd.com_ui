@@ -533,7 +533,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 onClick={onClose}
                 className="px-6 py-2.5 bg-[#850b20] text-white text-xs font-bold rounded-xl shadow-md"
               >
-                Continue Shopping innorabd
+                Continue Shopping INNORAᴮᴰ
               </button>
             </div>
           )}

@@ -29,7 +29,7 @@ export const CustomerReviewsSection: React.FC = () => {
       author: 'Isabella K. (Sydney)',
       title: 'The Size Calculator saved me from years of bad fits',
       comment:
-        'I was wearing a 36B for years until the innorabd calculator suggested 34D with sister size 36C. The underwire no longer digs into my sides, and the lift is natural!',
+        'I was wearing a 36B for years until the INNORAᴮᴰ calculator suggested 34D with sister size 36C. The underwire no longer digs into my sides, and the lift is natural!',
       rating: 5,
       size: '34D',
       verified: true,
@@ -40,7 +40,7 @@ export const CustomerReviewsSection: React.FC = () => {
 
   return (
     <section className="py-14 sm:py-20 bg-[#faf8f7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-[#e7ded7]">
           <div>

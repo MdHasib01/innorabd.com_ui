@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CategoryType } from '../types';
 import { Sparkles, ShieldCheck, Heart, Ruler, Mail, Check, ArrowRight } from 'lucide-react';
+import innoraLogo from '../../assets/innora-logo.png';
 
 interface FooterProps {
   onSelectCategory: (cat: CategoryType) => void;
@@ -31,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#850b20] border border-[#d4af37]/60 text-[#fbf5e6] text-xs font-bold uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-            <span>The innorabd Private Circle</span>
+            <span>The INNORAᴮᴰ Private Circle</span>
           </div>
 
           <h3 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-white">
@@ -70,19 +71,33 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-pulse"></span>
-              <span className="font-serif-luxury text-3xl font-bold tracking-tight text-white">
-                innorabd
-              </span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#850b20]"></span>
+            <div 
+              className="flex items-center gap-3 cursor-pointer group select-none"
+              onClick={() => onSelectCategory('All')}
+            >
+              <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#d4af37]/60 shadow-lg bg-[#30000c] flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src={innoraLogo} alt="INNORA Logo" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-start">
+                  <span className="font-serif-luxury text-3xl font-bold tracking-tight text-white group-hover:text-[#f3e5ab] transition-colors leading-none">
+                    INNORA
+                  </span>
+                  <sup className="text-[10px] font-bold text-[#d4af37] ml-0.5 tracking-wider uppercase font-sans -top-1.5 select-none">
+                    BD
+                  </sup>
+                </div>
+                <span className="text-[9.5px] tracking-[0.26em] uppercase text-[#d4af37] font-semibold mt-1">
+                  Haute Lingerie Atelier
+                </span>
+              </div>
             </div>
             <p className="text-xs text-[#d8c2b0] leading-relaxed max-w-sm font-light">
-              innorabd redefines luxury women&apos;s innerwear with exquisite French Chantilly lace, 24K dipped gold accents, anatomical 18-point sister-sizing, and guaranteed 100% confidential delivery.
+              INNORAᴮᴰ redefines luxury women&apos;s innerwear with exquisite French Chantilly lace, 24K dipped gold accents, anatomical 18-point sister-sizing, and guaranteed 100% confidential delivery.
             </p>
             <div className="flex items-center gap-4 text-xs text-[#d4af37]">
               <span className="flex items-center gap-1">
@@ -225,7 +240,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Copyright & Payment Methods */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-400">
           <div>
-            © {new Date().getFullYear()} innorabd Haute Innerwear & Co. All rights reserved.
+            © {new Date().getFullYear()} INNORAᴮᴰ Haute Innerwear & Co. All rights reserved.
           </div>
           <div className="flex items-center gap-3 text-stone-300">
             <span>Visa</span>

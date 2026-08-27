@@ -13,6 +13,7 @@ import {
   SlidersHorizontal
 } from 'lucide-react';
 import { CategoryType, CartItem, Product } from '../types';
+import innoraLogo from '../../assets/innora-logo.png';
 
 interface NavbarProps {
   activeCategory: CategoryType;
@@ -61,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 w-full bg-[#faf8f7]/95 backdrop-blur-md border-b border-[#e7ded7]">
       {/* Top Announcement Ribbon */}
       <div className="bg-[#850b20] text-[#fbf5e6] text-xs py-2 px-4 border-b border-[#d4af37]/30">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <div className="hidden sm:flex items-center gap-4 text-[11px] tracking-wide text-[#f3e5ab]">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
@@ -92,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
           {/* Mobile menu trigger */}
           <div className="flex items-center lg:hidden">
@@ -115,17 +116,38 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
 
-          {/* Brand Logo: innorabd */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => onSelectCategory('All')}>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
-                <span className="font-serif-luxury text-2xl sm:text-3xl font-bold tracking-tight text-[#850b20]">
-                  innorabd
-                </span>
-                <span className="w-2 h-2 rounded-full bg-[#850b20]"></span>
+          {/* Brand Logo: Logo Image + INNORAᴮᴰ text */}
+          <div 
+            id="brand-logo-btn"
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group py-1 select-none" 
+            onClick={() => onSelectCategory('All')}
+          >
+            {/* Signature Monogram Emblem */}
+            <div className="relative flex-shrink-0">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-sm border border-[#d4af37]/60 group-hover:border-[#d4af37] transition-all transform group-hover:scale-105 duration-300 bg-[#30000c] flex items-center justify-center">
+                <img
+                  src={innoraLogo}
+                  alt="INNORA Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="text-[9px] tracking-[0.28em] uppercase text-[#9e782f] font-semibold">
+              {/* Subtle Luxury Gold Ring Glow */}
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#d4af37] border-2 border-[#faf8f7] flex items-center justify-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#850b20] animate-pulse"></span>
+              </span>
+            </div>
+
+            {/* Typography: INNORA with elevated trademark BD */}
+            <div className="flex flex-col justify-center">
+              <div className="flex items-start">
+                <span className="font-serif-luxury text-2xl sm:text-3xl font-bold tracking-tight text-[#850b20] group-hover:text-[#680516] transition-colors leading-none">
+                  INNORA
+                </span>
+                <sup className="text-[9px] sm:text-[10px] font-bold text-[#b8860b] ml-0.5 tracking-wider uppercase font-sans -top-1 sm:-top-1.5 select-none">
+                  BD
+                </sup>
+              </div>
+              <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] uppercase text-[#9e782f] font-semibold mt-1">
                 Haute Lingerie & Fit
               </span>
             </div>
@@ -269,6 +291,26 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#faf8f7] border-b border-[#e7ded7] px-4 py-4 shadow-xl">
+          {/* Mobile Drawer Header with Logo & Brand */}
+          <div 
+            className="flex items-center gap-3 pb-3 mb-3 border-b border-[#e7ded7] cursor-pointer"
+            onClick={() => {
+              onSelectCategory('All');
+              setMobileMenuOpen(false);
+            }}
+          >
+            <div className="w-9 h-9 rounded-lg overflow-hidden border border-[#d4af37]/60 shadow-xs bg-[#30000c] flex-shrink-0">
+              <img src={innoraLogo} alt="INNORA Logo" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-start">
+                <span className="font-serif-luxury text-xl font-bold text-[#850b20] leading-none">INNORA</span>
+                <sup className="text-[8px] font-bold text-[#b8860b] ml-0.5 tracking-wider uppercase font-sans -top-1 select-none">BD</sup>
+              </div>
+              <span className="text-[8px] tracking-[0.2em] uppercase text-[#9e782f] font-semibold mt-0.5">Haute Lingerie & Fit</span>
+            </div>
+          </div>
+
           <div className="space-y-1">
             <div className="text-[11px] font-semibold text-[#850b20] uppercase tracking-wider px-3 mb-2">
               Lingerie Categories

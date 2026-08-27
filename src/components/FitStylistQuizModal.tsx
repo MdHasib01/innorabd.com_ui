@@ -374,7 +374,7 @@ export const FitStylistQuizModal: React.FC<FitStylistQuizModalProps> = ({
                 onClick={onClose}
                 className="px-6 py-2.5 bg-[#850b20] hover:bg-[#680516] text-white text-xs font-bold rounded-xl shadow-md"
               >
-                Explore Full innorabd Collection
+                Explore Full INNORAᴮᴰ Collection
               </button>
             </div>
           )}

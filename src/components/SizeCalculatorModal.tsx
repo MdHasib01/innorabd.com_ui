@@ -66,7 +66,7 @@ export const SizeCalculatorModal: React.FC<SizeCalculatorModalProps> = ({
               <Ruler className="w-4 h-4" />
             </span>
             <span className="text-xs uppercase font-bold tracking-widest text-[#f3e5ab]">
-              innorabd Precision Fit Atelier
+              INNORAᴮᴰ Precision Fit Atelier
             </span>
           </div>
 
@@ -306,7 +306,7 @@ export const SizeCalculatorModal: React.FC<SizeCalculatorModalProps> = ({
               </div>
 
               <div className="bg-white p-4 rounded-2xl border border-stone-200 space-y-2">
-                <h4 className="font-semibold text-stone-900">When to use Sister Sizing at innorabd:</h4>
+                <h4 className="font-semibold text-stone-900">When to use Sister Sizing at INNORAᴮᴰ:</h4>
                 <ul className="space-y-2 list-disc pl-4 text-stone-600">
                   <li><strong>Your size is out of stock:</strong> Order your sister size with confidence; cup coverage remains identical!</li>
                   <li><strong>During new bra break-in:</strong> Premium French lace and elastane soften by 5-10% over the first 4 washes.</li>
@@ -328,7 +328,7 @@ export const SizeCalculatorModal: React.FC<SizeCalculatorModalProps> = ({
                     <strong>Cause:</strong> {item.cause}
                   </div>
                   <div className="text-[11px] text-stone-700 bg-[#f9f3ee] p-2.5 rounded-lg border border-[#e8dcd2]">
-                    <strong>innorabd Solution:</strong> {item.solution}
+                    <strong>INNORAᴮᴰ Solution:</strong> {item.solution}
                   </div>
                 </div>
               ))}

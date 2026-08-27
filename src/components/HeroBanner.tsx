@@ -21,15 +21,15 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         <img
           src={heroBgImage}
           alt="INNORAbD Haute Sovereign Collection Luxury Box Set"
-          className="w-full h-full object-cover object-[center_right] lg:object-[right_center] select-none"
+          className="w-full h-full object-cover object-[78%_center] sm:object-[78%_center] lg:object-[right_center] select-none"
         />
 
         {/* Directional Gradient Overlays for High-Contrast Pristine Readability */}
         {/* Desktop left-to-right gradient to frame the typography nicely on silk backdrop */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#140105]/95 via-[#180208]/75 to-transparent hidden lg:block"></div>
 
-        {/* Mobile & Tablet vertical gradient backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#140105]/90 via-[#180208]/70 to-[#140105]/95 lg:hidden"></div>
+        {/* Mobile & Tablet vertical gradient backdrop allowing the centered product box to remain visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#140105]/85 via-[#180208]/55 to-[#140105]/90 lg:hidden"></div>
 
         {/* Subtle Top & Bottom Vignette for seamless transitions */}
         <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#140105]/70 to-transparent pointer-events-none"></div>

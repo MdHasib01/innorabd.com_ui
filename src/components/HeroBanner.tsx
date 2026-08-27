@@ -15,7 +15,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   onOpenFitStylist,
 }) => {
   return (
-    <div className="relative overflow-hidden bg-[#180106] text-[#faede1] border-b border-[#d4af37]/30 shadow-2xl min-h-[560px] lg:min-h-[620px] flex flex-col justify-between">
+    <div className="relative overflow-hidden bg-radial from-[#4a0410] via-[#2d020a] to-[#140105] text-[#faede1] border-b border-[#d4af37]/30 shadow-2xl min-h-[560px] lg:min-h-[620px] flex flex-col justify-between">
       {/* Background Image from assets */}
       <div className="absolute inset-0 z-0">
         <img
@@ -35,8 +35,13 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#140105]/70 to-transparent pointer-events-none"></div>
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#140105]/90 to-transparent pointer-events-none"></div>
 
+        {/* Previous Gold & Ruby Glow Gradient Orbs */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#850b20]/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-10 left-10 w-80 h-80 bg-[#d4af37]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/3 right-12 w-72 h-72 bg-[#d4af37]/15 rounded-full blur-2xl pointer-events-none"></div>
+
         {/* Gold Filigree Dot Pattern Glow */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px]"></div>
       </div>
 
       {/* Hero Content Section */}

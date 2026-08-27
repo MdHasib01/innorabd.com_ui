@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Ruler, ShieldCheck, HeartHandshake, Award, Flame, ArrowRight } from 'lucide-react';
+import { Sparkles, Ruler, ShieldCheck, HeartHandshake, Award, ArrowRight } from 'lucide-react';
 import { CategoryType } from '../types';
 import heroBgImage from '../../assets/website-hero.jpeg';
 
@@ -43,7 +43,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Text & Editorial Showcase */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 xl:col-span-6 space-y-6 text-center lg:text-left">
             {/* Top Micro-Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#850b20]/80 border border-[#d4af37]/60 shadow-inner backdrop-blur-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#d4af37] animate-pulse" />
@@ -115,35 +115,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
             </div>
           </div>
 
-          {/* Right Area: Unobstructed View of the Gift Box and Lingerie in the Background Image */}
-          <div className="lg:col-span-5 hidden lg:flex flex-col justify-end items-end relative min-h-[320px] pointer-events-none">
-            {/* Subtle Floating Signature Pill at bottom right */}
-            <div className="pointer-events-auto bg-[#1b0207]/80 hover:bg-[#1b0207]/95 border border-[#d4af37]/50 rounded-2xl p-4 backdrop-blur-md shadow-2xl transition-all duration-300 max-w-xs transform hover:scale-[1.02]">
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <span className="text-xs font-bold text-[#fbf5e6] font-serif-luxury tracking-wide flex items-center gap-1.5">
-                  <Flame className="w-3.5 h-3.5 text-[#d4af37]" />
-                  INNORAbD™ Signature Box Set
-                </span>
-                <span className="text-[10px] bg-[#850b20] text-[#fbf5e6] border border-[#d4af37]/60 font-semibold px-2 py-0.5 rounded-full">
-                  Haute Edition
-                </span>
-              </div>
-              <p className="text-[11px] text-[#e6d0c0] leading-relaxed">
-                Handcrafted Crimson Chantilly lace & silk set in our bespoke gold-embossed keepsake drawer box.
-              </p>
-              <div className="mt-2.5 pt-2 border-t border-[#d4af37]/20 flex items-center justify-between">
-                <span className="text-[11px] text-[#d4af37] font-medium flex items-center gap-1">
-                  <Award className="w-3 h-3 text-[#d4af37]" /> 24K Gold Hardware
-                </span>
-                <button
-                  onClick={() => onSelectCategory('Luxury Lace')}
-                  className="text-[11px] text-[#faede1] hover:text-[#d4af37] font-semibold flex items-center gap-1 cursor-pointer transition-colors"
-                >
-                  Explore Collection →
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* Right Area: Fully open and unobstructed to showcase the background product image */}
+          <div className="lg:col-span-5 xl:col-span-6 min-h-[180px] sm:min-h-[260px] lg:min-h-[360px] pointer-events-none" aria-hidden="true"></div>
         </div>
       </div>
 

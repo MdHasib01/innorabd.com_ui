@@ -30,15 +30,15 @@ export function SuccessDialog({ result, onClose }: Props) {
 
               <div className="mb-4 space-y-1 rounded-lg border-[1.5px] border-dashed border-gold bg-cream p-3 text-sm">
                 <div>
-                  {t.success.orderNumber} <strong className="font-mono text-burgundy">{result.orderNumber}</strong>
+                  {t.success.orderNumber} <strong className="font-mono font-bold text-burgundy">{result.orderNumber}</strong>
                 </div>
                 <div>
-                  {t.success.total} <strong className="text-burgundy">৳{n(result.total)}</strong>
+                  {t.success.total} <strong className="font-bold text-burgundy">৳{n(result.total)}</strong>
                 </div>
                 <div className="pt-1">{t.success.tickets}</div>
                 <div className="flex flex-wrap justify-center gap-1.5">
                   {result.tickets.map((serial) => (
-                    <span key={serial} className="rounded bg-burgundy px-2 py-0.5 font-mono text-xs text-gold-light">
+                    <span key={serial} className="rounded bg-burgundy px-2 py-0.5 font-mono font-bold text-xs text-gold-light">
                       {serial}
                     </span>
                   ))}

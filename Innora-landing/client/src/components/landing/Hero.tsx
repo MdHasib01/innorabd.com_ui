@@ -1,95 +1,40 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, Banknote, Gift, MapPin, Ticket, Truck } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
-import { HERO_SLIDES } from "@/lib/campaign";
-import { pad2 } from "@/lib/format";
-import { cn } from "@/lib/utils";
-
-function timeLeftToday() {
-  const now = new Date();
-  const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
-  const diff = Math.max(0, end - now.getTime());
-  return {
-    h: Math.floor((diff / 3_600_000) % 24),
-    m: Math.floor((diff / 60_000) % 60),
-    s: Math.floor((diff / 1000) % 60),
-  };
-}
+import { COD_DELIVERY_FEE, UNIT_PRICE } from "@/lib/campaign";
+import { TicketImage } from "./TicketImage";
+import s from "./landing.module.css";
 
 export function Hero() {
-  const { t, n } = useLanguage();
-  const [slide, setSlide] = useState(0);
-  const [time, setTime] = useState({ h: 23, m: 59, s: 59 });
-
-  useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % HERO_SLIDES.length), 5000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    const tick = () => setTime(timeLeftToday());
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const cells = [
-    { val: time.h, label: t.hero.hours },
-    { val: time.m, label: t.hero.minutes },
-    { val: time.s, label: t.hero.seconds },
+  const { lang, n } = useLanguage();
+  const bn = lang === "bn";
+  const benefits = [
+    { icon: Ticket, label: bn ? "প্রতি সেটে ক্যাম্পেইন টিকিট" : "A campaign ticket with every set" },
+    { icon: Gift, label: bn ? "২টি সেটে ৩টি টিকিট" : "2 sets. 3 campaign tickets." },
+    { icon: Truck, label: bn ? "সম্পূর্ণ পেমেন্টে ফ্রি ডেলিভারি" : "Full payment: free delivery" },
+    { icon: Banknote, label: bn ? `ক্যাশ অন ডেলিভারি: ৳${n(COD_DELIVERY_FEE)} ডেলিভারি` : `COD: ৳${COD_DELIVERY_FEE} delivery` },
   ];
-
-  return (
-    <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden px-5 py-[60px] text-center text-white">
-      <div className="absolute inset-0 z-[1]">
-        {HERO_SLIDES.map((src, i) => (
-          <div key={src} className="drone-slide" data-active={i === slide} style={{ backgroundImage: `url('${src}')` }} />
-        ))}
-      </div>
-
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle,rgba(35,6,14,0.72)_0%,rgba(20,3,8,0.95)_85%)]" />
-
-      <div className="relative z-[3] max-w-[860px]">
-        <span className="mb-5 inline-block rounded-[30px] bg-(image:--gold-gradient) px-5 py-1.5 text-[13px] font-extrabold tracking-[1.5px] text-burgundy uppercase">
-          {t.hero.pill}
-        </span>
-
-        <h1 className="mb-4 text-[28px] leading-[1.3] font-extrabold md:text-[42px]">
-          {t.hero.titleBefore}
-          <span className="text-gold-gradient">{t.hero.titleHighlight}</span>
-          {t.hero.titleAfter}
-        </h1>
-
-        <p className="mb-7 text-lg text-[#f1ece3]">
-          {t.hero.lead.a}
-          <strong>INNORA BD™</strong>
-          {t.hero.lead.b}
-          <strong>{t.hero.lead.ticket}</strong>
-          {t.hero.lead.c}
-        </p>
-
-        <div className="mb-[30px] inline-flex gap-3.5 rounded-xl border border-gold bg-[rgba(18,2,7,0.78)] px-[25px] py-3.5 backdrop-blur-[10px]">
-          {cells.map((cell, i) => (
-            <div key={cell.label} className="flex gap-3.5">
-              {i > 0 && <div className="text-2xl text-gold">:</div>}
-              <div className="text-center">
-                <div className="text-[28px] leading-none font-bold text-gold-light tabular-nums" suppressHydrationWarning>
-                  {n(pad2(cell.val))}
-                </div>
-                <div className="mt-1 text-[11px] text-[#aaa] uppercase">{cell.label}</div>
-              </div>
-            </div>
-          ))}
+  return <>
+    <section id="dream-tour" className={`${s.hero} ${s.tourHero}`}>
+      <div className={s.heroInner}>
+        <div className={s.heroCopy}>
+          <p className={s.eyebrow}><span/>{bn ? "ইনোরা ড্রিম হানিমুন ক্যাম্পেইন" : "INNORA DREAM HONEYMOON CAMPAIGN"}</p>
+          <h1>{bn ? <>কক্সবাজারে দুজনের<br/><em>স্বপ্নের ছুটি জিতুন।</em></> : <>Win a dream escape.<br/><em>Cox’s Bazar, for two.</em></>}</h1>
+          <p className={s.heroDescription}>{bn ? "নীল সমুদ্র, সোনালি সূর্যাস্ত আর প্রিয় মানুষটি। কক্সবাজারে সম্পূর্ণ ফ্রি হানিমুন ট্যুর জেতার সুযোগ নিন ইনোরার সাথে।" : "The sea, a golden sunset, and your favourite person. Enter for a chance to win a completely free honeymoon tour to Cox’s Bazar with INNORA."}</p>
+          <div className={s.heroEntry}><Ticket size={25} strokeWidth={1.4}/><div><strong>{bn ? `৳${n(UNIT_PRICE)}-এর নাইটওয়্যার সেট কিনুন` : `Buy a nightwear set for ৳${n(UNIT_PRICE)}`}</strong><span>{bn ? "সাথে পান আপনার হানিমুন ক্যাম্পেইন টিকিট" : "Your honeymoon campaign ticket comes with it"}</span></div></div>
+          <div className={s.heroButtons}><a href="#order-section" className={s.primaryButton}>{bn ? "অর্ডার করুন ও টিকিট পান" : "Order & get your ticket"}<ArrowRight size={17}/></a><a href="#campaign" className={s.textLink}>{bn ? "টিকিট ও অফার দেখুন" : "See the ticket & offer"}<ArrowUpRight size={16}/></a></div>
+          <div className={s.heroDelivery}><Truck size={16}/><span>{bn ? "সম্পূর্ণ পেমেন্টে ফ্রি ডেলিভারি" : "Full payment: free delivery"}</span><i/><span>{bn ? `COD ডেলিভারি ৳${n(COD_DELIVERY_FEE)}` : `COD delivery ৳${COD_DELIVERY_FEE}`}</span></div>
+          <p className={s.heroFinePrint}>{bn ? "বিজয়ী লটারি ড্র-এর মাধ্যমে নির্ধারিত হবে। টিকিট জয় নিশ্চিত করে না।" : "Winner selected by lottery draw. A ticket does not guarantee a win."}</p>
         </div>
-
-        <div>
-          <a href="#order-section" className={cn(buttonVariants({ variant: "gold", size: "cta" }))}>
-            {t.hero.cta}
-          </a>
+        <div className={s.tourVisual}>
+          <div className={s.tourPhoto}><Image src="/images/coxs-bazar-campaign.webp" alt={bn ? "কক্সবাজারের স্বপ্নের ছুটি — সমুদ্রতীরে সোনালি সূর্যাস্তের প্রতীকী দৃশ্য" : "A golden seaside sunset illustrating the Cox’s Bazar dream escape"} fill preload sizes="(max-width: 760px) 95vw, 580px"/><span className={s.tourLocation}><MapPin size={14}/>COX’S BAZAR · FOR TWO</span><span className={s.tourPhotoNote}>{bn ? "প্রতীকী ক্যাম্পেইন ছবি" : "Campaign illustration"}</span></div>
+          <div className={s.tourBadge}><span>{bn ? "বিজয়ী কাপলের জন্য" : "FOR THE WINNING COUPLE"}</span><strong>{bn ? "ফ্রি ট্যুর" : "FREE TOUR"}</strong><span>{bn ? "ড্রিম হানিমুন" : "A DREAM HONEYMOON"}</span></div>
+          <a href="#campaign" className={s.heroTicket} aria-label={bn ? "হানিমুন ক্যাম্পেইন টিকিট দেখুন" : "View the honeymoon campaign ticket"}><TicketImage alt={bn ? "কক্সবাজার ড্রিম হানিমুন ক্যাম্পেইন টিকিট" : "Cox’s Bazar dream honeymoon campaign ticket"}/></a>
         </div>
       </div>
     </section>
-  );
+    <div className={s.benefits}>{benefits.map(({icon: Icon, label}) => <div key={label}><Icon size={20} strokeWidth={1.4}/><span>{label}</span></div>)}</div>
+  </>;
 }

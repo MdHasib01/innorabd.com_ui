@@ -3,13 +3,13 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "bn";
 export const LOCALE_COOKIE = "lang";
 
-export type VariantKey = "pink" | "burgundy" | "black";
+export type VariantKey = "red" | "burgundy" | "lavender";
 
 const bn = {
   meta: {
     title: "INNORA BD™ - ড্রিম হানিমুন কক্সবাজার মেগা ক্যাম্পেইন",
     description:
-      "INNORA BD™-এর প্রিমিয়াম নাইটওয়্যার মাত্র ৫৯৯ টাকায় কিনে জিতে নিন সম্পূর্ণ ফ্রি কক্সবাজার ড্রিম হানিমুন ট্যুর!",
+      "INNORA BD™-এর প্রিমিয়াম নাইটওয়্যার ৫৯৯ টাকায় কিনে পান কক্সবাজার ড্রিম হানিমুন লটারি টিকিট। সম্পূর্ণ পেমেন্টে ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারিতে ডেলিভারি চার্জ ১০০ টাকা।",
   },
   ticker:
     "🔥 মেগা অফার: আজই প্রিমিয়াম নাইটওয়্যার অর্ডার করে জিতে নিন সম্পূর্ণ ফ্রি কক্সবাজার ড্রিম হানিমুন ট্যুর!",
@@ -40,9 +40,9 @@ const bn = {
     paletteTitle: "কালার ভ্যারিয়েন্ট সিলেক্ট করুন:",
     cta: "এই ড্রেসটি বুক করুন",
     variants: {
-      pink: { title: "সফট ব্লাশ পিঙ্ক বো সেট", label: "ব্লাশ পিঙ্ক" },
-      burgundy: { title: "রয়্যাল বার্গান্ডি সিল্ক সেট", label: "বার্গান্ডি" },
-      black: { title: "ক্লাসিক ব্ল্যাক বো আইভরি সেট", label: "আইভরি ব্ল্যাক" },
+      red: { title: "চেরি রেড লেস সাটিন সেট", label: "চেরি রেড" },
+      burgundy: { title: "রয়্যাল বার্গান্ডি লেস সাটিন সেট", label: "বার্গান্ডি" },
+      lavender: { title: "সফট ল্যাভেন্ডার লেস সাটিন সেট", label: "ল্যাভেন্ডার" },
     } satisfies Record<VariantKey, { title: string; label: string }>,
   },
   ticket: {
@@ -133,7 +133,7 @@ const en: Dictionary = {
   meta: {
     title: "INNORA BD™ - Dream Honeymoon Cox's Bazar Mega Campaign",
     description:
-      "Buy INNORA BD™ premium nightwear for just ৳599 and win a completely free Cox's Bazar dream honeymoon tour!",
+      "Buy INNORA BD™ nightwear for ৳599 and get a lottery ticket for a chance to win a Cox's Bazar honeymoon for two. Free delivery with full payment; ৳100 delivery for COD.",
   },
   ticker:
     "🔥 Mega Offer: Order premium nightwear today and win a completely FREE Cox's Bazar dream honeymoon tour!",
@@ -164,9 +164,9 @@ const en: Dictionary = {
     paletteTitle: "Select a colour variant:",
     cta: "Book This Dress",
     variants: {
-      pink: { title: "Soft Blush Pink Bow Set", label: "Blush Pink" },
-      burgundy: { title: "Royal Burgundy Silk Set", label: "Burgundy" },
-      black: { title: "Classic Black Bow Ivory Set", label: "Ivory Black" },
+      red: { title: "Cherry Red Lace Satin Set", label: "Cherry Red" },
+      burgundy: { title: "Royal Burgundy Lace Satin Set", label: "Burgundy" },
+      lavender: { title: "Soft Lavender Lace Satin Set", label: "Lavender" },
     },
   },
   ticket: {

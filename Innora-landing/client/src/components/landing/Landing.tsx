@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import type { VariantKey } from "@/i18n/dictionaries";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { ApiError, createOrder, type OrderPayload, type OrderResult, type PaymentMethod } from "@/lib/api";
-import { ticketsLeftToday, UNIT_PRICE } from "@/lib/campaign";
+import { UNIT_PRICE } from "@/lib/campaign";
 import { Checkout, type CustomerInfo } from "./Checkout";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -13,15 +13,17 @@ import { Hero } from "./Hero";
 import { PaymentDialog } from "./PaymentDialog";
 import { ProductShowcase } from "./ProductShowcase";
 import { SuccessDialog } from "./SuccessDialog";
-import { TicketPopup } from "./TicketPopup";
 import { TicketShowcase } from "./TicketShowcase";
+import { BrandStory } from "./BrandStory";
+import { OrderShortcut } from "./OrderShortcut";
+import styles from "./landing.module.css";
 
 const EMPTY_CUSTOMER: CustomerInfo = { name: "", phone: "", address: "" };
 
 export function Landing() {
   const { t, lang } = useLanguage();
 
-  const [variant, setVariant] = useState<VariantKey>("pink");
+  const [variant, setVariant] = useState<VariantKey>("burgundy");
   const [qty, setQty] = useState(1);
   const [payment, setPayment] = useState<PaymentMethod>("cod");
   const [customer, setCustomer] = useState<CustomerInfo>(EMPTY_CUSTOMER);
@@ -29,29 +31,6 @@ export function Landing() {
 
   const [payOpen, setPayOpen] = useState(false);
   const [success, setSuccess] = useState<(OrderResult & { paymentMethod: PaymentMethod }) | null>(null);
-  const [popupOpen, setPopupOpen] = useState(false);
-  const [ticketsLeft, setTicketsLeft] = useState(() => ticketsLeftToday());
-
-  // Don't interrupt someone mid-payment or reading their confirmation
-  const busy = payOpen || success !== null || submitting;
-  const busyRef = useRef(busy);
-  useEffect(() => {
-    busyRef.current = busy;
-  }, [busy]);
-
-  useEffect(() => {
-    const trigger = () => {
-      if (busyRef.current) return;
-      setTicketsLeft(ticketsLeftToday());
-      setPopupOpen(true);
-    };
-    const first = setTimeout(trigger, 4000);
-    const repeat = setInterval(trigger, 35000);
-    return () => {
-      clearTimeout(first);
-      clearInterval(repeat);
-    };
-  }, []);
 
   const placeOrder = useCallback(
     async (paymentMethod: PaymentMethod, advancePayment?: OrderPayload["advancePayment"]) => {
@@ -75,13 +54,15 @@ export function Landing() {
 
   return (
     <>
+      <a href="#dream-tour" className={styles.skipLink}>{lang === "bn" ? "মূল অংশে যান" : "Skip to content"}</a>
       <Header />
-      <Hero />
-
-      <main className="mx-auto max-w-[980px] px-5 py-[60px]">
-        <ProductShowcase variant={variant} onVariantChange={setVariant} />
+      <main>
+        <Hero />
         <TicketShowcase />
+        <ProductShowcase variant={variant} onVariantChange={setVariant} />
         <Checkout
+          variant={variant}
+          onVariantChange={setVariant}
           variantTitle={t.product.variants[variant].title}
           qty={qty}
           onQtyChange={setQty}
@@ -92,11 +73,12 @@ export function Landing() {
           submitting={submitting}
           onSubmit={() => (payment === "advance" ? setPayOpen(true) : placeOrder("cod"))}
         />
+        <BrandStory />
       </main>
 
       <Footer />
+      <OrderShortcut hidden={payOpen || success !== null} />
 
-      <TicketPopup open={popupOpen} onOpenChange={setPopupOpen} ticketsLeft={ticketsLeft} />
       <PaymentDialog
         open={payOpen}
         onOpenChange={setPayOpen}

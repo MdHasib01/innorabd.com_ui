@@ -1,83 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
+import { ArrowRight, Check, Feather, Gift, Heart } from "lucide-react";
 import type { VariantKey } from "@/i18n/dictionaries";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { discountPct, REGULAR_PRICE, UNIT_PRICE, VARIANTS } from "@/lib/campaign";
-import { cn } from "@/lib/utils";
-import { TitleBlock } from "./TitleBlock";
+import s from "./landing.module.css";
 
 export function ProductShowcase({ variant, onVariantChange }: { variant: VariantKey; onVariantChange: (v: VariantKey) => void }) {
-  const { t, n } = useLanguage();
-  const active = VARIANTS.find((v) => v.key === variant) ?? VARIANTS[0];
-
-  return (
-    <>
-      <TitleBlock title={t.product.heading} subtitle={t.product.subheading} />
-
-      <div className="mb-[60px] rounded-2xl border border-[#e5dac9] bg-white p-5 shadow-[0_10px_40px_rgba(0,0,0,0.05)] sm:p-[35px]">
-        <div className="grid items-center gap-[35px] md:grid-cols-[1.1fr_1fr]">
-          <div className="overflow-hidden rounded-xl border border-[#eae3d5] bg-[#fdfbf7] p-2.5 text-center">
-            <Image
-              key={active.img}
-              src={active.img}
-              alt={t.product.variants[active.key].title}
-              width={800}
-              height={1000}
-              priority
-              sizes="(max-width: 768px) 100vw, 520px"
-              className="h-auto max-h-[480px] w-full rounded-lg object-contain transition-opacity duration-300"
-            />
-          </div>
-
-          <div>
-            <span className="text-[13px] font-bold tracking-[1px] text-burgundy uppercase">{t.product.kicker}</span>
-            <h3 className="my-1.5 text-[26px] leading-snug font-bold text-burgundy">{t.product.variants[variant].title}</h3>
-
-            <div className="my-[15px] flex items-center gap-3">
-              <span className="text-[32px] font-extrabold text-burgundy">৳{n(UNIT_PRICE)}</span>
-              <span className="text-lg text-[#888] line-through">৳{n(REGULAR_PRICE)}</span>
-              <span className="rounded-md bg-[#e8f5e9] px-2.5 py-1 text-[13px] font-bold text-[#2e7d32]">
-                {t.product.discount(n(discountPct))}
-              </span>
-            </div>
-
-            <p className="mb-[18px] text-[15px] text-[#555]">{t.product.description}</p>
-
-            <div className="my-5">
-              <span className="mb-2.5 block text-[15px] font-bold">{t.product.paletteTitle}</span>
-              <div className="flex gap-3">
-                {VARIANTS.map((v) => (
-                  <button
-                    key={v.key}
-                    type="button"
-                    onClick={() => onVariantChange(v.key)}
-                    aria-pressed={v.key === variant}
-                    className={cn(
-                      "w-[75px] cursor-pointer rounded-lg border-2 border-[#ddd] bg-white p-1 text-center transition-all duration-200",
-                      v.key === variant && "-translate-y-0.5 border-burgundy shadow-[0_0_10px_rgba(35,6,14,0.25)]",
-                    )}
-                  >
-                    <Image
-                      src={v.img}
-                      alt={t.product.variants[v.key].label}
-                      width={150}
-                      height={130}
-                      className="block h-[65px] w-full rounded object-cover"
-                    />
-                    <span className="mt-1 block text-[11px] font-semibold text-[#444]">{t.product.variants[v.key].label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <a href="#order-section" className={cn(buttonVariants({ variant: "gold", size: "block" }))}>
-              {t.product.cta}
-            </a>
-          </div>
-        </div>
+  const { t, lang, n } = useLanguage();
+  const bn = lang === "bn";
+  const active = VARIANTS.find(v => v.key === variant) ?? VARIANTS[0];
+  return <section id="collection" className={`${s.section} ${s.collection}`}>
+    <div className={s.sectionHeading}><div><p className={s.eyebrow}>{bn ? "দ্য ইনোরা কালেকশন" : "THE INNORA COLLECTION"}</p><h2>{bn ? "আগে বেছে নিন আপনার পছন্দের সেট।" : "First, find your favourite set."}</h2></div><p>{bn ? "তিনটি সুন্দর রঙ। প্রতি সেটে ক্যাম্পেইন টিকিট।" : "Three beautiful colours. A campaign ticket with every set."}</p></div>
+    <div className={s.productGrid}>
+      <div className={s.gallery}>
+        <div className={s.productPhoto}><span className={s.photoBadge}>INNORA BD · {bn ? "লেস সাটিন কালেকশন" : "THE LACE SATIN EDIT"}</span><Image key={active.key} src={active.img} alt={t.product.variants[variant].title} width={1122} height={1402} sizes="(max-width: 760px) 90vw, 560px" className={s.lifestylePhoto}/></div>
+        <div className={s.productThumbnails}>{VARIANTS.map(v => <button type="button" key={v.key} onClick={() => onVariantChange(v.key)} aria-pressed={variant === v.key} aria-label={t.product.variants[v.key].label} className={variant === v.key ? s.activeProductThumbnail : ""}><Image src={v.img} alt="" width={80} height={100}/><span>{t.product.variants[v.key].label}</span></button>)}</div>
       </div>
-    </>
-  );
+      <div className={s.productInfo}>
+        <p className={s.eyebrow}>{bn ? "সাটিনের কোমলতা, লেসের সৌন্দর্য" : "SOFT SATIN. BEAUTIFUL LACE."}</p>
+        <h3 aria-live="polite">{t.product.variants[variant].title}</h3>
+        <p className={s.productSubtitle}>{bn ? "কোমল ফেব্রিক · নচ-কলার · সুন্দর লেস ডিটেইল" : "Soft satin · Notch collar · Delicate lace details"}</p>
+        <div className={s.productPrice}><strong>৳{n(UNIT_PRICE)}</strong><del>৳{n(REGULAR_PRICE)}</del><span>{t.product.discount(n(discountPct))}</span></div>
+        <p className={s.productDescription}>{bn ? "আরামদায়ক টু-পিস সেট, লেসের কাফ আর কোমল সাটিনে। নিজের জন্য বেছে নিন চেরি রেড, বার্গান্ডি অথবা ল্যাভেন্ডার।" : "An easy two-piece set with delicate lace cuffs and a soft satin finish. Choose your moment in cherry red, burgundy, or lavender."}</p>
+        <div className={s.productFeatures}><span><Feather size={16}/>{bn ? "কোমল সাটিন" : "Soft satin"}</span><span><Heart size={16}/>{bn ? "সুন্দর লেস ডিটেইল" : "Lace details"}</span></div>
+        <div className={s.colourPicker}><p>{bn ? "আপনার রঙ" : "Your colour"}<strong>{t.product.variants[variant].label}</strong></p><div>{VARIANTS.map(v => <button type="button" key={v.key} onClick={() => onVariantChange(v.key)} aria-pressed={variant === v.key} aria-label={t.product.variants[v.key].label} className={variant === v.key ? s.selectedColour : ""}><span style={{backgroundColor:v.color}}>{variant === v.key && <Check size={15} color="white"/>}</span>{t.product.variants[v.key].label}</button>)}</div></div>
+        <a href="#order-section" className={s.primaryButton}>{bn ? "এই সেটটি অর্ডার করুন" : "Order this set"}<ArrowRight size={18}/></a>
+        <div className={s.productGift}><Gift size={22}/><p><strong>{bn ? "সাথে আপনার হানিমুন ক্যাম্পেইন টিকিট" : "Your honeymoon campaign ticket is included"}</strong><span>{bn ? "১টি সেটে ১টি টিকিট · ২টি সেটে ৩টি টিকিট" : "1 set, 1 ticket · 2 sets, 3 tickets"}</span></p></div>
+      </div>
+    </div>
+  </section>;
 }

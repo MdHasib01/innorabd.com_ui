@@ -16,13 +16,13 @@ export const HERO_SLIDES = [
   "/5531d13a4f5a40efb03ace747e9556b8.jpg",
 ];
 
-export const TICKET_IMG = "/Lotarry-tikit-design_2.jpg";
-export const TICKET_IMG_FALLBACK = "/Lotarry-tikit-design.jpg";
+export const TICKET_IMG = "/images/honeymoon-ticket-v2.webp";
+export const TICKET_IMG_FALLBACK = "/images/honeymoon-ticket-v2.png";
 
-export const VARIANTS: { key: VariantKey; img: string }[] = [
-  { key: "pink", img: "/watermarked_img_13858636076422768.jpg" },
-  { key: "burgundy", img: "/watermarked_img_4878021920900929224.jpg" },
-  { key: "black", img: "/watermarked_img_13460204106529675595.jpg" },
+export const VARIANTS: { key: VariantKey; img: string; color: string }[] = [
+  { key: "burgundy", img: "/images/products/innora-burgundy.webp", color: "#741d37" },
+  { key: "red", img: "/images/products/innora-red.webp", color: "#c62631" },
+  { key: "lavender", img: "/images/products/innora-lavender.webp", color: "#a67cad" },
 ];
 
 export const ticketsFor = (qty: number) => (qty === 1 ? 1 : qty === 2 ? 3 : Math.floor(qty * 1.5));

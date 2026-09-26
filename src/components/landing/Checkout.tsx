@@ -16,14 +16,14 @@ export type CustomerInfo = { name: string; phone: string; address: string };
 export const PHONE_PATTERN = "01[3-9][0-9]{8}";
 
 type Props = {
-  variant: VariantKey; onVariantChange: (variant: VariantKey) => void;
+  variant: VariantKey;
   variantTitle: string; qty: number; onQtyChange: (qty: number) => void;
   payment: PaymentMethod; onPaymentChange: (p: PaymentMethod) => void;
   customer: CustomerInfo; onCustomerChange: (c: CustomerInfo) => void;
   submitting: boolean; onSubmit: () => void;
 };
 
-export function Checkout({ variant, onVariantChange, variantTitle, qty, onQtyChange, payment, onPaymentChange, customer, onCustomerChange, submitting, onSubmit }: Props) {
+export function Checkout({ variant, variantTitle, qty, onQtyChange, payment, onPaymentChange, customer, onCustomerChange, submitting, onSubmit }: Props) {
   const { t, n, lang } = useLanguage();
   const bn = lang === "bn";
   const activeProduct = VARIANTS.find(item => item.key === variant) ?? VARIANTS[0];
@@ -35,15 +35,14 @@ export function Checkout({ variant, onVariantChange, variantTitle, qty, onQtyCha
 
   return <section id="order-section" className={s.checkoutSection}>
     <div className={s.section}>
-      <div className={s.checkoutHeading}><p className={s.eyebrow}>{bn ? "সহজ অর্ডার · সাথে হানিমুন ক্যাম্পেইন টিকিট" : "AN EASY ORDER. YOUR HONEYMOON TICKET INCLUDED."}</p><h2>{bn ? "অর্ডার করুন, স্বপ্নের সুযোগ নিন।" : "Your dream escape starts with an order."}</h2><p>{bn ? "রঙ বেছে নিন, ঠিকানা দিন, পেমেন্ট পদ্ধতি নির্বাচন করুন।" : "Choose your colour, add your address, and pick how you’d like to pay."}</p></div>
+      <div className={s.checkoutHeading}><p className={s.eyebrow}>{bn ? "সহজ অর্ডার · সাথে হানিমুন ক্যাম্পেইন টিকিট" : "AN EASY ORDER. YOUR HONEYMOON TICKET INCLUDED."}</p><h2>{bn ? "অর্ডার করুন, স্বপ্নের সুযোগ নিন।" : "Your dream escape starts with an order."}</h2><p>{bn ? "ঠিকানা দিন, পেমেন্ট পদ্ধতি নির্বাচন করুন।" : "Add your address and pick how you’d like to pay."}</p></div>
       <div className={s.deliveryComparison}>
-        <div><Truck size={23}/><span><strong>{bn ? "সম্পূর্ণ পেমেন্ট" : "Pay in full"}</strong><small>{bn ? "বিকাশ / নগদ" : "bKash / Nagad"}</small></span><b>{bn ? "ফ্রি ডেলিভারি" : "FREE DELIVERY"}</b></div>
+        <div className={s.bestDealOption}><span className={s.bestDealTag}>{bn ? "সেরা অফার" : "BEST DEAL"}</span><Truck size={23}/><span><strong>{bn ? "সম্পূর্ণ পেমেন্টে ডেলিভারি চার্জ ফ্রি" : "Full payment: delivery charge free"}</strong><small>{bn ? "বিকাশ / নগদ" : "bKash / Nagad"}</small></span><b>{bn ? "ফ্রি ডেলিভারি" : "FREE DELIVERY"}</b></div>
         <div><Truck size={23}/><span><strong>{bn ? "ক্যাশ অন ডেলিভারি" : "Cash on delivery"}</strong><small>{bn ? "পার্সেল হাতে পেয়ে পেমেন্ট" : "Pay when your parcel arrives"}</small></span><b>{bn ? `ডেলিভারি ৳${n(COD_DELIVERY_FEE)}` : `৳${COD_DELIVERY_FEE} DELIVERY`}</b></div>
       </div>
       <form onSubmit={e => {e.preventDefault(); onSubmit();}} className={s.checkoutGrid}>
         <fieldset disabled={submitting} className={s.deliveryForm}>
           <legend>{bn ? "১. আপনার সেট ও ঠিকানা" : "1. Your set & delivery details"}</legend>
-          <div className={s.checkoutColours}><label htmlFor="order-colour">{bn ? "সেটের রঙ বেছে নিন" : "Choose your set colour"}</label><select id="order-colour" value={variant} onChange={e => onVariantChange(e.target.value as VariantKey)}>{VARIANTS.map(({key}) => <option key={key} value={key}>{t.product.variants[key].label}</option>)}</select><a href="#collection">{bn ? "পণ্যের ছবি ও বিবরণ দেখুন" : "See product photos & details"}</a></div>
           <label htmlFor="customer-name">{bn ? "আপনার নাম" : "Full name"}<span>*</span></label>
           <Input id="customer-name" name="name" className={s.input} placeholder={t.checkout.namePh} autoComplete="name" required maxLength={120} value={customer.name} onChange={setField("name")}/>
           <label htmlFor="customer-phone">{bn ? "মোবাইল নম্বর" : "Mobile number"}<span>*</span></label>
@@ -52,7 +51,7 @@ export function Checkout({ variant, onVariantChange, variantTitle, qty, onQtyCha
           <Input id="customer-address" name="address" className={s.input} placeholder={t.checkout.addressPh} autoComplete="street-address" required maxLength={500} value={customer.address} onChange={setField("address")}/>
           <p className={s.deliveryNote}><Truck size={16}/>{bn ? "সারা বাংলাদেশে আপনার দরজায় পৌঁছে যাবে।" : "Delivered to your doorstep, anywhere in Bangladesh."}</p>
           <div className={s.paymentOptions}><h3 id="payment-label">{bn ? "২. কীভাবে পেমেন্ট করতে চান?" : "2. How would you like to pay?"}</h3><RadioGroup aria-labelledby="payment-label" disabled={submitting} value={payment} onValueChange={v => onPaymentChange(v as PaymentMethod)}>
-            <label className={isAdvance ? s.paymentSelected : ""}><RadioGroupItem value="advance"/><span className={s.paymentCopy}><strong>{bn ? "সম্পূর্ণ পেমেন্ট · বিকাশ / নগদ" : "Pay in full · bKash / Nagad"}</strong><small>{bn ? `মোট ৳${n(subtotal)} · ডেলিভারি চার্জ নেই` : `Total ৳${n(subtotal)} · No delivery charge`}</small></span><b className={s.freeDeliveryBadge}>{bn ? "ডেলিভারি ফ্রি" : "FREE DELIVERY"}</b></label>
+            <label className={`${isAdvance ? s.paymentSelected : ""} ${s.bestDealOption}`}><span className={s.bestDealTag}>{bn ? "সেরা অফার" : "BEST DEAL"}</span><RadioGroupItem value="advance"/><span className={s.paymentCopy}><strong>{bn ? "সম্পূর্ণ পেমেন্ট · বিকাশ / নগদ" : "Pay in full · bKash / Nagad"}</strong><small>{bn ? `সম্পূর্ণ পেমেন্টে ডেলিভারি চার্জ ফ্রি · মোট ৳${n(subtotal)}` : `Delivery charge free with full payment · Total ৳${n(subtotal)}`}</small></span><b className={s.freeDeliveryBadge}>{bn ? "ডেলিভারি ফ্রি" : "FREE DELIVERY"}</b></label>
             <label className={payment === "cod" ? s.paymentSelected : ""}><RadioGroupItem value="cod"/><span className={s.paymentCopy}><strong>{t.checkout.cod}</strong><small>{bn ? `মোট ৳${n(subtotal + COD_DELIVERY_FEE)} · পার্সেল পেয়ে পেমেন্ট করুন` : `Total ৳${n(subtotal + COD_DELIVERY_FEE)} · Pay on arrival`}</small></span><b className={s.codDeliveryBadge}>+ ৳{n(COD_DELIVERY_FEE)}</b></label>
           </RadioGroup></div>
         </fieldset>

@@ -82,12 +82,12 @@
   --ring: #d4af37;
   --radius: 0.5rem;
 
-  /* Anek Bangla for Bangla (default); Anek Latin for English */
-  --font-body: var(--font-anek-bangla), sans-serif;
+  /* Hind Siliguri for Bangla (default); Anek Latin for English */
+  --font-body: var(--font-hind-siliguri), sans-serif;
 }
 
 html[lang="en"] {
-  --font-body: var(--font-anek-latin), var(--font-anek-bangla), sans-serif;
+  --font-body: var(--font-anek-latin), var(--font-hind-siliguri), sans-serif;
 }
 
 @layer base {

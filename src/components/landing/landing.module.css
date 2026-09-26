@@ -58,14 +58,12 @@
 .deliveryComparison b { margin-left: auto; font-size: 12px; font-weight: 500; white-space: nowrap; }
 .deliveryComparison svg { flex-shrink: 0; }
 .checkoutSection .checkoutGrid { border-top: 3px solid #71394a; box-shadow: 0 14px 42px #5c39260a; }
-.checkoutColours { margin-bottom: 22px; padding-bottom: 20px; border-bottom: 1px solid #e6d9c8; }
-.checkoutColours > label { display: block; font-size: 13px; color: #765a47; margin-bottom: 8px; }
-.checkoutColours > select { width: 100%; min-height: 46px; padding: 10px 12px; background: #fffaf3; border: 1px solid #cbb99f; color: #643445; border-radius: 0; font: inherit; font-size: 14px; }
-.checkoutColours > a { display: inline-block; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; color: #997554; margin-top: 8px; }
 .paymentOptions label { gap: 10px; padding: 15px 12px; }
 .paymentCopy { display: flex; flex-direction: column; gap: 4px; flex: 1; }
-.paymentOptions .freeDeliveryBadge, .paymentOptions .codDeliveryBadge { font-size: 9px; line-height: 1.5; padding: 5px 7px; font-weight: 500; text-align: center; max-width: 83px; }
+.paymentOptions .freeDeliveryBadge, .paymentOptions .bestDealBadge, .paymentOptions .codDeliveryBadge { font-size: 9px; line-height: 1.5; padding: 5px 7px; font-weight: 500; text-align: center; max-width: 83px; }
 .freeDeliveryBadge { color: #4d6940; background: #e7eedc; }
+.bestDealOption { position: relative; }
+.bestDealTag { position: absolute; top: -11px; left: 14px; z-index: 1; padding: 3px 8px; background: #754152; color: #fff7e8; font-size: 8px; font-weight: 600; line-height: 1.25; letter-spacing: .6px; }
 .codDeliveryBadge { color: #86613d; background: #f0e6d6; }
 .paymentOptions label.paymentSelected { border-color: #8a5160; box-shadow: inset 3px 0 #754152; }
 .deliverySaving, .deliveryHint { display: flex; align-items: flex-start; gap: 7px; padding: 10px 12px; font-size: 11px; line-height: 1.6; }
@@ -267,8 +265,6 @@
   .deliveryComparison b { font-size: 10px; }
   .checkoutGrid { padding: 20px 14px; gap: 22px; }
   .deliveryForm legend { font-size: 21px; margin-bottom: 15px; }
-  .checkoutColours { margin-bottom: 16px; padding-bottom: 14px; }
-  .checkoutColours > select { min-height: 42px; padding: 8px 10px; }
   .deliveryForm .input { height: 43px; margin-bottom: 13px; padding: 10px; font-size: 16px; }
   .deliveryNote { font-size: 10px; }
   .paymentOptions { margin-top: 19px; }

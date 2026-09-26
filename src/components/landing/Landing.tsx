@@ -62,7 +62,6 @@ export function Landing() {
         <ProductShowcase variant={variant} onVariantChange={setVariant} />
         <Checkout
           variant={variant}
-          onVariantChange={setVariant}
           variantTitle={t.product.variants[variant].title}
           qty={qty}
           onQtyChange={setQty}

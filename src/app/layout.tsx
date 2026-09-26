@@ -33,11 +33,11 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(process.env.SITE_URL ?? "https://www.innorabd.com"),
     title: meta.title,
     description: meta.description,
-    applicationName: "INNORA BD",
+    applicationName: "INNORAᴮᴰ",
     openGraph: {
       type: "website",
       url: "/",
-      siteName: "INNORA BD",
+      siteName: "INNORAᴮᴰ",
       title: meta.title,
       description: meta.description,
       locale: lang === "bn" ? "bn_BD" : "en_US",

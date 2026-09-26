@@ -7,9 +7,9 @@ export type VariantKey = "red" | "burgundy" | "lavender";
 
 const bn = {
   meta: {
-    title: "INNORA BD™ - ড্রিম হানিমুন কক্সবাজার মেগা ক্যাম্পেইন",
+    title: "INNORAᴮᴰ - ড্রিম হানিমুন কক্সবাজার মেগা ক্যাম্পেইন",
     description:
-      "INNORA BD™-এর প্রিমিয়াম নাইটওয়্যার ৫৯৯ টাকায় কিনে পান কক্সবাজার ড্রিম হানিমুন লটারি টিকিট। সম্পূর্ণ পেমেন্টে ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারিতে ডেলিভারি চার্জ ১০০ টাকা।",
+      "INNORAᴮᴰ-এর প্রিমিয়াম নাইটওয়্যার ৫৯৯ টাকায় কিনে পান কক্সবাজার ড্রিম হানিমুন লটারি টিকিট। সম্পূর্ণ পেমেন্টে ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারিতে ডেলিভারি চার্জ ১০০ টাকা।",
   },
   ticker:
     "🔥 মেগা অফার: আজই প্রিমিয়াম নাইটওয়্যার অর্ডার করে জিতে নিন সম্পূর্ণ ফ্রি কক্সবাজার ড্রিম হানিমুন ট্যুর!",
@@ -131,9 +131,9 @@ export type Dictionary = typeof bn;
 
 const en: Dictionary = {
   meta: {
-    title: "INNORA BD™ - Dream Honeymoon Cox's Bazar Mega Campaign",
+    title: "INNORAᴮᴰ - Dream Honeymoon Cox's Bazar Mega Campaign",
     description:
-      "Buy INNORA BD™ nightwear for ৳599 and get a lottery ticket for a chance to win a Cox's Bazar honeymoon for two. Free delivery with full payment; ৳100 delivery for COD.",
+      "Buy INNORAᴮᴰ nightwear for ৳599 and get a lottery ticket for a chance to win a Cox's Bazar honeymoon for two. Free delivery with full payment; ৳100 delivery for COD.",
   },
   ticker:
     "🔥 Mega Offer: Order premium nightwear today and win a completely FREE Cox's Bazar dream honeymoon tour!",

@@ -14,7 +14,7 @@ export function Header() {
     <div className={s.announcement}><Sparkles size={13} /><span>{bn ? "একটু বিলাসিতা, একটি স্বপ্নের সুযোগ — প্রতি অর্ডারেই হানিমুন ক্যাম্পেইন টিকিট" : "A little luxury. A chance to escape. A honeymoon campaign ticket with every order."}</span><a href="#campaign">{bn ? "বিস্তারিত" : "Discover more"}<ArrowUpRight size={13}/></a></div>
     <header className={s.header}>
       <div className={s.headerInner}>
-        <a href="#" className={s.brand} aria-label="INNORA BD home"><Image src={logo} alt="" width={48} height={48}/><span>INNORA<small>BD · INTIMATE ELEGANCE</small></span></a>
+        <a href="#" className={s.brand} aria-label="INNORA BD home"><Image src={logo} alt="" width={48} height={48}/><span>INNORA<sup>BD</sup><small>INTIMATE ELEGANCE</small></span></a>
         <nav className={s.nav} aria-label={bn ? "প্রধান নেভিগেশন" : "Main navigation"}>
           <a href="#dream-tour">{bn ? "ড্রিম হানিমুন" : "The dream tour"}</a><a href="#campaign">{bn ? "ক্যাম্পেইন টিকিট" : "Your campaign ticket"}</a><a href="#collection">{bn ? "কালেকশন" : "The collection"}</a>
         </nav>

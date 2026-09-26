@@ -1,6 +1,0 @@
-{
-  "name": "innorabd - Luxury Innerwear",
-  "description": "Premium women's innerwear ecommerce store featuring luxury lace collections, red & golden accents, personalized size calculator, smart fit stylist, and seamless checkout.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
